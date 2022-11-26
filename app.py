@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, redirect
-from flask_login import login_user, LoginManager, login_required, logout_user
+from flask_login import login_user, LoginManager, login_required, logout_user, current_user
 import os
+import time
 from database import User
+from PIL import Image
 
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
@@ -28,6 +30,7 @@ def index():
 
 @app.route("/login")
 def login():
+
     return render_template("login.html")
 
 @app.route("/login", methods=["POST"])
@@ -46,18 +49,105 @@ def signup():
 
 @app.route("/signup", methods=["POST"])
 def register():
+    create_id = request.form["create_id"]
     name = request.form["name"]
     password = request.form["password"]
+    belong = request.form["belong"]
+    position = request.form["position"]
+    tel = request.form["tel"]
+    email = request.form["email"]
+    comment = request.form["comment"]
+    link = request.form["link"]
+    icon = request.files["icon"]
+    # img=Image.open(icon)
+    # img.save("data/icon/"+str(create_id)+".jpeg")
+    file_path = "static/icon/" + create_id + ".png"
+    icon.save(os.path.join("static/icon/", create_id))
+
+
     User.create(
+        create_id=create_id,
         name=name,
-        password=generate_password_hash(password, method="sha256")
+        password=generate_password_hash(password, method="sha256"),
+        belong=belong,
+        position=position,
+        tel=tel,
+        email=email,
+        comment=comment,
+        link=link,
+        icon=file_path
     )
+
     return redirect("/login")
+
+
+
     
 @app.route("/logout", methods=["POST"])
 def logout():
     logout_user()
     return redirect("/login")
 
-if __name__ = '__main__':
-    app.run(debug=True)
+
+@app.route("/search")
+def search_page():
+    return render_template("search.html")
+
+@app.route("/search", methods=["POST"])
+def search():
+    id = request.form["search_id"]
+    searching = User.select().where(User.create_id==id).get()
+    if(searching):
+        return render_template("search_result.html", searching=searching, height=calcPx(searching.icon))
+    else:
+        print("存在しないIDです")
+        time.sleep(2000)
+        return render_template("search.html")
+
+
+@app.route("/edit")
+@login_required
+def edit_page():
+    return render_template("edit.html", user=current_user)
+
+@app.route("/edit", methods=["POST"])
+def edit():
+    details = User.select().where(User.id==current_user.id).get()
+
+    new_belong = request.form["belong"]
+    details.belong = new_belong
+
+    new_position = request.form["position"]
+    details.position = new_position
+
+    new_tel = request.form["tel"]
+    details.tel = new_tel
+
+    new_email = request.form["email"]
+    details.email = new_email
+
+    new_comment = request.form["comment"]
+    details.comment = new_comment
+
+    new_link = request.form["link"]
+    details.link = new_link
+
+    details.save()
+
+    # q = User.update(belong=new_belong, position=new_position, tel=new_tel, email=new_email, comment=new_comment, link=new_link)
+    # q.excute()
+
+    return render_template("index.html")
+
+
+def calcPx(img):
+    image = Image.open(img)
+    (y, x) = image.size
+    multi = 200 / x
+    return multi * y
+
+
+
+
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", debug=True)

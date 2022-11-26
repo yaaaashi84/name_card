@@ -13,11 +13,21 @@ print("接続OK")
 
 class User(UserMixin, Model):
     id = IntegerField(primary_key=True)  # 数字
+    create_id = CharField(unique=True)
     name = CharField()  # 文字
     password = CharField()  # 文字
+    belong = CharField()
+    position = CharField()
+    tel = CharField()
+    email = CharField()
+    comment = CharField()
+    link = CharField()
+    icon = CharField(null=True)
 
     class Meta:  # 内部クラス
         database = db
         table_name = "user"
 
+
+# db.drop_tables([User])
 db.create_tables([User])

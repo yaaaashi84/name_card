@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form action="/edit" method="post">
+    <p>{{ user.create_id }}</p>
+    <input type="text" name="belong" placeholder="belong" value="{{ user.belong }}">
+    <input type="text" name="position" placeholder="position" value="{{ user.position }}">
+    <input type="tel" name="tel" placeholder="tel" value="{{ user.tel }}">
+    <input type="text" name="email" placeholder="e-mail" value="{{ user.email }}">
+    <input type="text" name="comment" placeholder="comment" value="{{ user.comment }}">
+    <input type="text" name="link" placeholder="link" value="{{ user.link }}">
+
+    <input type="submit" value="変更">
+
+</form>
+
+{% endblock %}

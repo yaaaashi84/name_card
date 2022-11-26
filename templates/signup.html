@@ -2,24 +2,20 @@
 
 {% block content %}
 
+<form action="/signup" method="post" enctype="multipart/form-data">
+  <input type="text" name="create_id" placeholder="create_id">
+  <input type="text" name="name" placeholder="Name">
+  <input type="password" name="password" placeholder="Password">
+  <input type="text" name="belong" placeholder="belong">
+  <input type="text" name="position" placeholder="position">
+  <input type="tel" name="tel" placeholder="tel">
+  <input type="text" name="email" placeholder="e-mail">
+  <input type="text" name="comment" placeholder="comment">
+  <input type="text" name="link" placeholder="link">
 
-<form action="/signup" method="post">
-    
-<div class="container">
-  <div class="row">
-    <div class="col-4 offset-4 text-center">
-        <h1 class="mt-5 mb-5">Sign Up</h1>
-        <div class="input-group mb-3">
-            <input type="text" name="name" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <input type="text" name="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-        <input class="btn btn-info" type="submit" value="SignUp">
-    </div>
-  </div>
-</div>
-
+  <input id="upload" type="file" name="icon" accept="image/*" capture="camera" value="take a photo">
+<!-- この写真はどこになんて名前で保存されるのか -->
+  <input type="submit" value="登録">
 </form>
 
 {% endblock %}
