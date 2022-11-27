@@ -92,6 +92,7 @@ def paste(me):
 
     print(img.shape)
     print(pic.shape)
+    x, y, _ = pic.shape
 
     # img.paste(pic, (0, 0), pic.split()[3])
     img[20:200 + 20, 800:150 + 800] = pic

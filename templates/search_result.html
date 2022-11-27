@@ -2,12 +2,26 @@
 
 {% block content %}
 
-<p>{{ searching.name }}さんが見つかりました</p>
-<img src="{{ searching.icon }}" alt="" width="200px" height="{{ height }}px">
-<form action="/add" method="post">
-    <input type="hidden" name="create_id_to" value="{{ searching.create_id }}">
-    <input type="submit" value="追加">
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3 text-center">
+      <h3 class="mt-5 mb-5 p-2 mb-2 bg-secondary text-white">{{ searching.name }}さんが見つかりました</h3>
+    </div>
+
+    <div class="col-4 offset-4 text-center">
+
+        <img src="{{ searching.icon }}" alt="" width="200px" height="{{ height }}px">
+        <form action="/add" method="post">
+            <input type="hidden" name="create_id_to" value="{{ searching.create_id }}"><br><br>
+            <input type="submit" value="追加">
+        </form>
+    
+    </div>
+  </div>
+</div>
+
+
+
 
 
 {% endblock %}

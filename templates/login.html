@@ -2,12 +2,33 @@
 
 {% block content %}
 
-<h1>login</h1>
-    <form action="/login" method="post">
-    <input type="text" name="name" placeholder="Name">
-    <input type="password" name="password" placeholder="Password">
-    <input type="submit" value="Login">
-</form>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-4 offset-4 text-center">
+      <h1 class="mt-5 mb-5 p-2 mb-2 bg-dark text-white">Login</h1>
+    </div>
+
+    <div class="col-4 offset-4 text-center">
+
+
+      <form action="/login" method="post">
+
+        <div class="input-group mb-3">
+            <input type="text" name="name" class="form-control" aria-describedby="basic-addon1" placeholder="Name">
+        </div>
+
+
+        <div class="input-group mb-3">
+            <input type="password" name="password" class="form-control" aria-describedby="basic-addon1" placeholder="Password">
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="submit" value="Login">
+        </div>
+        
+      </form>
 
 <a href="/signup">会員登録がまだの方</p>
 

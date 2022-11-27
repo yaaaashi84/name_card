@@ -2,13 +2,24 @@
 
 {% block content %}
 
-<a href="">QR表示</a>
-<a href="">QR読み取り</a>
-<form action="/search" method="post">
-    <input type="text" name="search_id" placeholder="相手のidを入力してください">
-    <input type="submit" value="検索">
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col-4 offset-4 text-center">
+      <h1 class="mt-5 mb-5 p-2 mb-2 bg-dark text-white">Search Person</h1>
+    </div>
 
+    <div class="col-4 offset-4 text-center">
+
+        <form action="/search" method="post">
+            <div class="input-group mb-3">
+                <input type="text" name="search_id" class="form-control" aria-describedby="basic-addon1" placeholder="相手のidを入力してください">
+            </div>
+            <input type="submit" value="検索">
+        </form>
+
+    </div>
+  </div>
+</div>
 
 
 

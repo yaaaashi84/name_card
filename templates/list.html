@@ -2,10 +2,17 @@
 
 {% block content %}
 
-{% for i in friend %}
-<p>{{ i.name }}</p>
-<img src="{{ i.icon }}" alt="" width="200px" height="{{ height }}px">
-{% endfor %}
+<div class="text-center">
+    {% for i in friend %}
+    <br><br>
+    -------------------------------------------------------------------------------
+    <br><br><br>
+    <img src="static/pic_name_card/picname_{{ i.create_id }}.png" alt="" width="500px" height="{{ height }}px"><br>
+    <br><p><a href="{{ i.link }}" class="link-secondary">{{ i.link }}</a></p>
+
+    <br>
+    {% endfor %}
+</div>
 
 
 {% endblock %}
