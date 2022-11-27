@@ -28,6 +28,15 @@ class User(UserMixin, Model):
         database = db
         table_name = "user"
 
+class Friend(Model):
+    create_id_from = CharField()
+    create_id_to = CharField()
+
+    class Meta:  # 内部クラス
+        database = db
+        table_name = "friend"
+
 
 # db.drop_tables([User])
 db.create_tables([User])
+db.create_tables([Friend])

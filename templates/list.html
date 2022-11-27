@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% for i in friend %}
+<p>{{ i.name }}</p>
+<img src="{{ i.icon }}" alt="" width="200px" height="{{ height }}px">
+{% endfor %}
+
+
+{% endblock %}

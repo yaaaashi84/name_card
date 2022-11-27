@@ -2,7 +2,12 @@
 
 {% block content %}
 
-{{ searching.name }}さんが見つかりました
+<p>{{ searching.name }}さんが見つかりました</p>
 <img src="{{ searching.icon }}" alt="" width="200px" height="{{ height }}px">
+<form action="/add" method="post">
+    <input type="hidden" name="create_id_to" value="{{ searching.create_id }}">
+    <input type="submit" value="追加">
+</form>
+
 
 {% endblock %}

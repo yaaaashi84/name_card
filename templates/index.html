@@ -1,14 +1,17 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1>Topページ</h1>
+<h1 class="p-3 mb-2 bg-info text-white mt-2 mb-2">My Page</h1>
+<!-- <h1 class="mt-5 mb-5">My Page</h1> -->
 
-<h1>Top Page</h1>
-
-<a href="/edit">マイページ</a>
-<a href="">名刺一覧</a>
-<a href="">新着</a>
+<a href="/edit">編集</a>
+<a href="/list">名刺一覧</a>
+<!-- <a href="">新着</a> -->
 <a href="/search">名刺交換</a>
+
+<form action="/create" method="post">
+    <input type="submit" value="名刺生成">
+</form>
 
 <form action="/logout" method="post">
     <input type="submit" value="Logout">
