@@ -63,7 +63,7 @@ def register():
     # img=Image.open(icon)
     # img.save("data/icon/"+str(create_id)+".jpeg")
     file_path = "static/icon/" + create_id + ".png"
-    icon.save(os.path.join("static/icon/", create_id))
+    icon.save(os.path.join("static/icon/", create_id + ".png"))
 
 
     User.create(

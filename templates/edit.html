@@ -4,11 +4,11 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-6 offset-3 text-center">
+    <div class="col-md-6 offset-md-3 text-center">
       <h1 class="mt-5 mb-5 p-2 mb-2 bg-secondary text-white">edit profile</h1>
     </div>
 
-    <div class="col-6 offset-3 text-center">
+    <div class="col-md-6 offset-md-3 text-center">
 
 
       <form action="/edit" method="post" enctype="multipart/form-data">
@@ -38,9 +38,11 @@
         </div>
             <input type="file" name="icon" class="form-control" aria-describedby="basic-addon1" capture="camera" value="take a photo">
 
-        <div class="input-group mb-3 text-center">
-            <input type="submit" value="変更">
+            <br>
+        <div class="input-group mb-3 d-flex justify-content-center">
+            <input type="submit" value="変更" class="btn btn-outline-secondary">
         </div>
+
       </form>
     </div>
   </div>
