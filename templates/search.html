@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-4 text-center">
+      <h1 class="mt-5 mb-5 p-2 mb-2 bg-secondary text-white">Search Person</h1>
+    </div>
+
+    <div class="col-md-4 offset-md-4 text-center">
+
+        <form action="/search" method="post">
+            <div class="input-group mb-3">
+                <input type="text" name="search_id" class="form-control" aria-describedby="basic-addon1" placeholder="相手のidを入力してください">
+            </div>
+
+            <input type="submit" value="検索" class="btn btn-outline-secondary">
+        </form>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

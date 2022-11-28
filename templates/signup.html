@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-4 text-center">
+      <h1 class="mt-5 mb-5 p-2 mb-2 bg-secondary text-white">Sign Up</h1>
+    </div>
+
+    <div class="col-md-4 offset-md-4 text-center">
+
+
+      <form action="/signup" method="post" enctype="multipart/form-data">
+
+        <div class="input-group mb-3">
+          <input type="text" name="create_id" class="form-control" aria-describedby="basic-addon1" placeholder="ユーザーID">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" name="name" class="form-control" aria-describedby="basic-addon1" placeholder="名前">
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" name="password" class="form-control" aria-describedby="basic-addon1" placeholder="パスワード">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" name="belong" class="form-control" aria-describedby="basic-addon1" placeholder="所属">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" name="position" class="form-control" aria-describedby="basic-addon1" placeholder="役職">
+        </div>
+        <div class="input-group mb-3">
+          <input type="tel" name="tel" class="form-control" aria-describedby="basic-addon1" placeholder="電話番号">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" name="email" class="form-control" aria-describedby="basic-addon1" placeholder="メールアドレス">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" name="comment" class="form-control" aria-describedby="basic-addon1" placeholder="ひとこと">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" name="link" class="form-control" aria-describedby="basic-addon1" placeholder="リンク">
+          <h6 class="text-secondary">SNSやHPなど取引先に見てもらいたいサイトのリンクを添付してください</h6>
+        </div>
+        <div>
+          <input id="upload" type="file" name="icon" accept="image/*" capture="camera" value="take a photo">
+          <h6 class="text-secondary">※ 縦：横 = 4 : 3の写真を使用してください</h6>
+        </div>
+          <input type="submit" value="登録" class="btn btn-outline-secondary">
+      </form>
+    </div>
+  </div>
+</div>
+    
+
+
+{% endblock %}

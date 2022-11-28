@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="text-center">
+    {% for i in friend %}
+    <br><br>
+    -------------------------------------------------------------------------------
+    <br><br><br>
+    <img src="static/pic_name_card/picname_{{ i.create_id }}.png" alt="" width="500px" height="{{ height }}px"><br>
+    <br><p><a href="{{ i.link }}" class="link-secondary">{{ i.link }}</a></p>
+
+    <br>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
